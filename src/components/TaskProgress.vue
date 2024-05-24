@@ -41,6 +41,8 @@ export default {
 .task-progress-text {
     position: absolute;
     font-size: 16px;
+    left: 50%;
+    translate: -50%;
 }
 
 @media (min-width: 576px) {

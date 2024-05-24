@@ -9,7 +9,7 @@
         @start="drag = true"
         @end="drag = false"
     >
-        <TaskItem
+        <TaskGridItem
             v-for="task in tasks"
             :key="task.id"
             :task="task"

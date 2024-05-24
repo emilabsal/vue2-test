@@ -2,7 +2,7 @@
     <div class="task-form-container">
         <form
             class="task-form"
-            @submit="newTask($event)"
+            @submit.prevent="newTask($event)"
         >
             <input
                 class="task-form-input"
@@ -11,10 +11,7 @@
                 maxlength="43"
                 v-model="title"
             >
-            <button
-                class="task-form-button"
-                @click.prevent="newTask()"
-            >+</button>
+            <button class="task-form-button">+</button>
         </form>
     </div>
 </template>

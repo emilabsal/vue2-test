@@ -59,11 +59,11 @@ export default {
         },
 
         taskDelete(i) {
-            this.tasks.splice(i, 1);
+            this.tasks = this.tasks.filter(task => task.id !== i);
         },
 
         taskToggle(i) {
-            this.tasks[i].pending = !this.tasks[i].pending;
+            this.tasks.find(task => task.id === i).pending = !this.tasks.find(task => task.id === i).pending;
         },
     }
 }
