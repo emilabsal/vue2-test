@@ -1,8 +1,20 @@
 <template>
     <div class="task-form-container">
-        <form class="task-form" @submit="newTask($event)">
-            <input class="task-form-input" type="text" placeholder="New task?" maxlength="43" v-model="title">
-            <button class="task-form-button" @click.prevent="newTask($event)">+</button>
+        <form
+            class="task-form"
+            @submit="newTask($event)"
+        >
+            <input
+                class="task-form-input"
+                type="text"
+                placeholder="New task?"
+                maxlength="43"
+                v-model="title"
+            >
+            <button
+                class="task-form-button"
+                @click.prevent="newTask()"
+            >+</button>
         </form>
     </div>
 </template>
@@ -16,9 +28,8 @@ export default {
     },
 
     methods: {
-        newTask (e) {
-            e.preventDefault();
-            if ( this.title != ''){
+        newTask() {
+            if (this.title !== '') {
                 this.$emit('create-new-task', this.title);
                 this.title = "";
             }
@@ -33,6 +44,7 @@ export default {
     display: flex;
     justify-content: center;
 }
+
 @media (min-width: 576px) {
     .task-form-container {
         margin: 40px 30px 0 30px;

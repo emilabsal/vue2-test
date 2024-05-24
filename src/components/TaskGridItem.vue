@@ -1,14 +1,18 @@
 <template>
-    <div class="task" :class="taskClass"  @click="$emit('task-toggle', task)">
+    <div
+        :class="['task', taskClass]"
+        @click="$emit('task-toggle', task)"
+    >
         <div class="task-header">
-            <div class="task-delete-button"
-                :class="taskClass"
-                @click.stop="$emit('task-delete', task)">
+            <div
+                :class="['task-delete-button', taskClass]"
+                @click.stop="$emit('task-delete', task)"
+            >
                 x
             </div>
         </div>
         <div class="task-body">
-            <span class="task-text" :class="taskClass">{{ task.title }}</span>
+            <span :class="['task-text', taskClass]">{{ task.title }}</span>
         </div>
     </div>
 </template>
@@ -19,16 +23,15 @@ export default {
         task: {
             type: Object,
             required: true,
-            default: '',
+            // default: '',
+            default: () => { }
         }
     },
-
     computed: {
         taskClass() {
             return this.task.pending ? 'pending' : 'done';
         },
     }
-
 }
 </script>
 
@@ -44,6 +47,7 @@ export default {
     border-radius: 8px;
     margin-top: 10px;
 }
+
 @media (min-width: 576px) {
     .task {
         width: 350px;
@@ -85,6 +89,7 @@ export default {
     background-color: #d1382e;
     border-left: 12px solid #b8271c;
 }
+
 .task.pending:hover {
     background-color: #fa4538;
     border-left: 12px solid #d83d32;
@@ -94,8 +99,9 @@ export default {
     background-color: #4caf50;
     border-left: 12px solid #0a8f08;
 }
+
 .task.done:hover {
-    background-color:#60d463;
+    background-color: #60d463;
     border-left: 12px solid #0fc40c;
 }
 
